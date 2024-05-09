@@ -44,6 +44,10 @@ namespace Backend.Clases
         {
             try
             {
+                if (Buscar(envio.numeroGuia)==null)
+                {
+                    return "El número de guía ingresado no está registrado";
+                }
                 if (ValidarCampos(envio) != "")
                 {
                     return ValidarCampos(envio);
