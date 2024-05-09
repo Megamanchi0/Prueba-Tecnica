@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LogisticaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Bodega">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EnvioTerrestres" Relationship="Self.PK_ENVIOT_BODEGA" FromRole="Bodega" ToRole="EnvioTerrestre" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="documento" />
+    </Key>
+    <Property Name="documento" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="apellido" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="correo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EnvioMaritimoes" Relationship="Self.PK_ENVIOM_CLIENTE" FromRole="Cliente" ToRole="EnvioMaritimo" />
+    <NavigationProperty Name="EnvioTerrestres" Relationship="Self.PK_ENVIOT_CLIENTE" FromRole="Cliente" ToRole="EnvioTerrestre" />
+  </EntityType>
+  <EntityType Name="EnvioMaritimo">
+    <Key>
+      <PropertyRef Name="numeroGuia" />
+    </Key>
+    <Property Name="numeroGuia" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="documentoCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="idTipoProducto" Type="Int32" />
+    <Property Name="cantidad" Type="Int32" />
+    <Property Name="fechaRegistro" Type="DateTime" Precision="0" />
+    <Property Name="fechaEntrega" Type="DateTime" Precision="0" />
+    <Property Name="idPuerto" Type="Int32" />
+    <Property Name="numeroFlota" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="precioEnvio" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="descuento" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="valorTotal" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Cliente" Relationship="Self.PK_ENVIOM_CLIENTE" FromRole="EnvioMaritimo" ToRole="Cliente" />
+    <NavigationProperty Name="Flota" Relationship="Self.PK_ENVIOM_FLOTA" FromRole="EnvioMaritimo" ToRole="Flota" />
+    <NavigationProperty Name="Puerto" Relationship="Self.PK_ENVIOM_PUERTO" FromRole="EnvioMaritimo" ToRole="Puerto" />
+    <NavigationProperty Name="TipoProducto" Relationship="Self.PK_ENVIOM_TIPOPRODUCTO" FromRole="EnvioMaritimo" ToRole="TipoProducto" />
+  </EntityType>
+  <EntityType Name="EnvioTerrestre">
+    <Key>
+      <PropertyRef Name="numeroGuia" />
+    </Key>
+    <Property Name="numeroGuia" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="documentoCliente" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="idTipoProducto" Type="Int32" />
+    <Property Name="cantidad" Type="Int32" />
+    <Property Name="fechaRegistro" Type="DateTime" Precision="0" />
+    <Property Name="fechaEntrega" Type="DateTime" Precision="0" />
+    <Property Name="idBodega" Type="Int32" />
+    <Property Name="placaVehiculo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="precioEnvio" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="descuento" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="valorTotal" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Bodega" Relationship="Self.PK_ENVIOT_BODEGA" FromRole="EnvioTerrestre" ToRole="Bodega" />
+    <NavigationProperty Name="Cliente" Relationship="Self.PK_ENVIOT_CLIENTE" FromRole="EnvioTerrestre" ToRole="Cliente" />
+    <NavigationProperty Name="TipoProducto" Relationship="Self.PK_ENVIOT_TIPOPRODUCTO" FromRole="EnvioTerrestre" ToRole="TipoProducto" />
+    <NavigationProperty Name="Vehiculo" Relationship="Self.PK_ENVIOT_VEHICULO" FromRole="EnvioTerrestre" ToRole="Vehiculo" />
+  </EntityType>
+  <EntityType Name="Flota">
+    <Key>
+      <PropertyRef Name="numeroFlota" />
+    </Key>
+    <Property Name="numeroFlota" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tipoFlota" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="capacidad" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EnvioMaritimoes" Relationship="Self.PK_ENVIOM_FLOTA" FromRole="Flota" ToRole="EnvioMaritimo" />
+  </EntityType>
+  <EntityType Name="Puerto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="nombre" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="telefono" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EnvioMaritimoes" Relationship="Self.PK_ENVIOM_PUERTO" FromRole="Puerto" ToRole="EnvioMaritimo" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="TipoProducto">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="EnvioMaritimoes" Relationship="Self.PK_ENVIOM_TIPOPRODUCTO" FromRole="TipoProducto" ToRole="EnvioMaritimo" />
+    <NavigationProperty Name="EnvioTerrestres" Relationship="Self.PK_ENVIOT_TIPOPRODUCTO" FromRole="TipoProducto" ToRole="EnvioTerrestre" />
+  </EntityType>
+  <EntityType Name="Vehiculo">
+    <Key>
+      <PropertyRef Name="placa" />
+    </Key>
+    <Property Name="placa" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="tipoVehiculo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="modelo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="marca" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="capacidad" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="EnvioTerrestres" Relationship="Self.PK_ENVIOT_VEHICULO" FromRole="Vehiculo" ToRole="EnvioTerrestre" />
+  </EntityType>
+  <Association Name="PK_ENVIOT_BODEGA">
+    <End Role="Bodega" Type="Self.Bodega" Multiplicity="0..1" />
+    <End Role="EnvioTerrestre" Type="Self.EnvioTerrestre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bodega">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EnvioTerrestre">
+        <PropertyRef Name="idBodega" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_ENVIOM_CLIENTE">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="EnvioMaritimo" Type="Self.EnvioMaritimo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="documento" />
+      </Principal>
+      <Dependent Role="EnvioMaritimo">
+        <PropertyRef Name="documentoCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_ENVIOT_CLIENTE">
+    <End Role="Cliente" Type="Self.Cliente" Multiplicity="0..1" />
+    <End Role="EnvioTerrestre" Type="Self.EnvioTerrestre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="documento" />
+      </Principal>
+      <Dependent Role="EnvioTerrestre">
+        <PropertyRef Name="documentoCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_ENVIOM_FLOTA">
+    <End Role="Flota" Type="Self.Flota" Multiplicity="0..1" />
+    <End Role="EnvioMaritimo" Type="Self.EnvioMaritimo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Flota">
+        <PropertyRef Name="numeroFlota" />
+      </Principal>
+      <Dependent Role="EnvioMaritimo">
+        <PropertyRef Name="numeroFlota" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_ENVIOM_PUERTO">
+    <End Role="Puerto" Type="Self.Puerto" Multiplicity="0..1" />
+    <End Role="EnvioMaritimo" Type="Self.EnvioMaritimo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Puerto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EnvioMaritimo">
+        <PropertyRef Name="idPuerto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_ENVIOM_TIPOPRODUCTO">
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="0..1" />
+    <End Role="EnvioMaritimo" Type="Self.EnvioMaritimo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProducto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EnvioMaritimo">
+        <PropertyRef Name="idTipoProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_ENVIOT_TIPOPRODUCTO">
+    <End Role="TipoProducto" Type="Self.TipoProducto" Multiplicity="0..1" />
+    <End Role="EnvioTerrestre" Type="Self.EnvioTerrestre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoProducto">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="EnvioTerrestre">
+        <PropertyRef Name="idTipoProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="PK_ENVIOT_VEHICULO">
+    <End Role="Vehiculo" Type="Self.Vehiculo" Multiplicity="0..1" />
+    <End Role="EnvioTerrestre" Type="Self.EnvioTerrestre" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vehiculo">
+        <PropertyRef Name="placa" />
+      </Principal>
+      <Dependent Role="EnvioTerrestre">
+        <PropertyRef Name="placaVehiculo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="LogisticaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Bodegas" EntityType="Self.Bodega" />
+    <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+    <EntitySet Name="EnvioMaritimoes" EntityType="Self.EnvioMaritimo" />
+    <EntitySet Name="EnvioTerrestres" EntityType="Self.EnvioTerrestre" />
+    <EntitySet Name="Flotas" EntityType="Self.Flota" />
+    <EntitySet Name="Puertoes" EntityType="Self.Puerto" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="TipoProductoes" EntityType="Self.TipoProducto" />
+    <EntitySet Name="Vehiculoes" EntityType="Self.Vehiculo" />
+    <AssociationSet Name="PK_ENVIOT_BODEGA" Association="Self.PK_ENVIOT_BODEGA">
+      <End Role="Bodega" EntitySet="Bodegas" />
+      <End Role="EnvioTerrestre" EntitySet="EnvioTerrestres" />
+    </AssociationSet>
+    <AssociationSet Name="PK_ENVIOM_CLIENTE" Association="Self.PK_ENVIOM_CLIENTE">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="EnvioMaritimo" EntitySet="EnvioMaritimoes" />
+    </AssociationSet>
+    <AssociationSet Name="PK_ENVIOT_CLIENTE" Association="Self.PK_ENVIOT_CLIENTE">
+      <End Role="Cliente" EntitySet="Clientes" />
+      <End Role="EnvioTerrestre" EntitySet="EnvioTerrestres" />
+    </AssociationSet>
+    <AssociationSet Name="PK_ENVIOM_FLOTA" Association="Self.PK_ENVIOM_FLOTA">
+      <End Role="Flota" EntitySet="Flotas" />
+      <End Role="EnvioMaritimo" EntitySet="EnvioMaritimoes" />
+    </AssociationSet>
+    <AssociationSet Name="PK_ENVIOM_PUERTO" Association="Self.PK_ENVIOM_PUERTO">
+      <End Role="Puerto" EntitySet="Puertoes" />
+      <End Role="EnvioMaritimo" EntitySet="EnvioMaritimoes" />
+    </AssociationSet>
+    <AssociationSet Name="PK_ENVIOM_TIPOPRODUCTO" Association="Self.PK_ENVIOM_TIPOPRODUCTO">
+      <End Role="TipoProducto" EntitySet="TipoProductoes" />
+      <End Role="EnvioMaritimo" EntitySet="EnvioMaritimoes" />
+    </AssociationSet>
+    <AssociationSet Name="PK_ENVIOT_TIPOPRODUCTO" Association="Self.PK_ENVIOT_TIPOPRODUCTO">
+      <End Role="TipoProducto" EntitySet="TipoProductoes" />
+      <End Role="EnvioTerrestre" EntitySet="EnvioTerrestres" />
+    </AssociationSet>
+    <AssociationSet Name="PK_ENVIOT_VEHICULO" Association="Self.PK_ENVIOT_VEHICULO">
+      <End Role="Vehiculo" EntitySet="Vehiculoes" />
+      <End Role="EnvioTerrestre" EntitySet="EnvioTerrestres" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
