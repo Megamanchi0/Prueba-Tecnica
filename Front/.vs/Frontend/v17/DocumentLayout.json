@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\paginas\\scripts\\enviomaritimo.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\paginas\\envioterrestre.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|solutionrelative:paginas\\envioterrestre.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|c:\\users\\sebastian\\desktop\\prueba t\u00E9cnica\\front\\paginas\\scripts\\enviomaritimo.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|solutionrelative:paginas\\scripts\\enviomaritimo.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|c:\\users\\sebastian\\desktop\\prueba t\u00E9cnica\\front\\paginas\\scripts\\envioterrestre.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "AbsoluteMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\paginas\\scripts\\envioterrestre.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|solutionrelative:paginas\\scripts\\envioterrestre.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\paginas\\enviomaritimo.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|solutionrelative:paginas\\enviomaritimo.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\paginas\\envioterrestre.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|solutionrelative:paginas\\envioterrestre.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2F3F19A3-302B-4EEC-A74D-1B8D6DA8393D}|Frontend.csproj|C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\paginas\\scripts\\principal.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -30,24 +30,24 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "EnvioMaritimo.js",
               "DocumentMoniker": "C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\Paginas\\Scripts\\EnvioMaritimo.js",
               "RelativeDocumentMoniker": "Paginas\\Scripts\\EnvioMaritimo.js",
               "ToolTip": "C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\Paginas\\Scripts\\EnvioMaritimo.js",
               "RelativeToolTip": "Paginas\\Scripts\\EnvioMaritimo.js",
-              "ViewState": "AQIAAEkAAAAAAAAAAAAgwFIAAAAeAAAA",
+              "ViewState": "AQIAADsAAAAAAAAAAAAQwFIAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-05-08T20:51:33.297Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "EnvioMaritimo.html",
               "DocumentMoniker": "C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\Paginas\\EnvioMaritimo.html",
               "RelativeDocumentMoniker": "Paginas\\EnvioMaritimo.html",
@@ -55,12 +55,11 @@
               "RelativeToolTip": "Paginas\\EnvioMaritimo.html",
               "ViewState": "AQIAADYAAAAAAAAAAAAAABAAAABcAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
-              "WhenOpened": "2024-05-08T20:51:24.417Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-08T20:51:24.417Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "EnvioTerrestre.js",
               "DocumentMoniker": "C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\Paginas\\Scripts\\EnvioTerrestre.js",
               "RelativeDocumentMoniker": "Paginas\\Scripts\\EnvioTerrestre.js",
@@ -68,12 +67,11 @@
               "RelativeToolTip": "Paginas\\Scripts\\EnvioTerrestre.js",
               "ViewState": "AQIAAFIAAAAAAAAAAAAgwFMAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-05-08T20:51:09.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-05-08T20:51:09.302Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
               "Title": "EnvioTerrestre.html",
               "DocumentMoniker": "C:\\Users\\Sebastian\\Desktop\\Prueba T\u00E9cnica\\Front\\Paginas\\EnvioTerrestre.html",
               "RelativeDocumentMoniker": "Paginas\\EnvioTerrestre.html",

@@ -19,7 +19,10 @@ namespace Backend.Clases
         {
             try
             {
-                if (ValidarCampos(envio)!="")
+                if (Buscar(envio.numeroGuia) != null)
+                {
+                    return "El número de guía ingresado ya está registrado";
+                }else if (ValidarCampos(envio)!="")
                 {
                     return ValidarCampos(envio);
                 }
@@ -104,11 +107,7 @@ namespace Backend.Clases
         private string ValidarCampos(EnvioTerrestre envio)
         {
             string cadena = "";
-            if (Buscar(envio.numeroGuia) != null)
-            {
-                cadena = "El número de guía ingresado ya está registrado";
-            }
-            else if (envio.numeroGuia.Length != 10)
+            if (envio.numeroGuia.Length != 10)
             {
                 cadena = "El número de la guía debe tener 10 caracteres";
             }
